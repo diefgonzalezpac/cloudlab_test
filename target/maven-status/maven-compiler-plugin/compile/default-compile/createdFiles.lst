@@ -1,0 +1,17 @@
+com/test/superheroes/exception/ApiException.class
+com/test/superheroes/entity/Superhero.class
+com/test/superheroes/entity/Comic.class
+com/test/superheroes/exception/GlobalExceptionHandler.class
+com/test/superheroes/SuperheroesApplication.class
+com/test/superheroes/exception/model/Problem.class
+com/test/superheroes/repository/SuperheroRepository.class
+com/test/superheroes/exception/model/ExceptionModels.class
+com/test/superheroes/config/LogAspect.class
+com/test/superheroes/controller/SuperheroController.class
+com/test/superheroes/service/SuperheroService.class
+com/test/superheroes/repository/PowerRepository.class
+com/test/superheroes/dto/SuperheroDTO.class
+com/test/superheroes/repository/ComicRepository.class
+com/test/superheroes/config/LogExecutionTime.class
+com/test/superheroes/exception/model/ApiExceptionResponse.class
+com/test/superheroes/entity/Power.class

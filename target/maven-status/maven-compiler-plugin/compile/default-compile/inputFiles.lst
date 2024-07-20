@@ -1,0 +1,17 @@
+/home/difegopa/cloudlabs_learning_project/superheros/src/main/java/com/test/superheroes/exception/model/Problem.java
+/home/difegopa/cloudlabs_learning_project/superheros/src/main/java/com/test/superheroes/repository/ComicRepository.java
+/home/difegopa/cloudlabs_learning_project/superheros/src/main/java/com/test/superheroes/exception/GlobalExceptionHandler.java
+/home/difegopa/cloudlabs_learning_project/superheros/src/main/java/com/test/superheroes/exception/model/ExceptionModels.java
+/home/difegopa/cloudlabs_learning_project/superheros/src/main/java/com/test/superheroes/dto/SuperheroDTO.java
+/home/difegopa/cloudlabs_learning_project/superheros/src/main/java/com/test/superheroes/entity/Power.java
+/home/difegopa/cloudlabs_learning_project/superheros/src/main/java/com/test/superheroes/repository/SuperheroRepository.java
+/home/difegopa/cloudlabs_learning_project/superheros/src/main/java/com/test/superheroes/repository/PowerRepository.java
+/home/difegopa/cloudlabs_learning_project/superheros/src/main/java/com/test/superheroes/SuperheroesApplication.java
+/home/difegopa/cloudlabs_learning_project/superheros/src/main/java/com/test/superheroes/exception/ApiException.java
+/home/difegopa/cloudlabs_learning_project/superheros/src/main/java/com/test/superheroes/config/LogExecutionTime.java
+/home/difegopa/cloudlabs_learning_project/superheros/src/main/java/com/test/superheroes/exception/model/ApiExceptionResponse.java
+/home/difegopa/cloudlabs_learning_project/superheros/src/main/java/com/test/superheroes/config/LogAspect.java
+/home/difegopa/cloudlabs_learning_project/superheros/src/main/java/com/test/superheroes/entity/Superhero.java
+/home/difegopa/cloudlabs_learning_project/superheros/src/main/java/com/test/superheroes/controller/SuperheroController.java
+/home/difegopa/cloudlabs_learning_project/superheros/src/main/java/com/test/superheroes/entity/Comic.java
+/home/difegopa/cloudlabs_learning_project/superheros/src/main/java/com/test/superheroes/service/SuperheroService.java
