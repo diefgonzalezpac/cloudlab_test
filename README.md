@@ -48,6 +48,7 @@ This project demonstrates a DevOps technical test involving cloning, dockerizing
    
    # Ejecuta el archivo JAR
    ENTRYPOINT ["java", "-jar", "app.jar"]
+   ```
 
    El archivo yml incluye las relaciones entre la base de datos creada (superheroes) usando mysql8 al igual que las relaciones con el contenedor que se encargara de ejecutar el script de python usado en el 4 punto de la presente prueba
    
