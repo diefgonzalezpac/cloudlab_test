@@ -24,3 +24,29 @@ This project demonstrates a DevOps technical test involving cloning, dockerizing
    ```bash
    git clone https://github.com/friveradev/superheros
    cd superheros
+
+2. Dockerizado de la app
+
+   Este proyecto utiliza un contenedor Docker para ejecutar una aplicación Java basada en el archivo `superheros.jar`. La configuración de Docker se realiza mediante un archivo Dockerfile, el cual está descrito a continuación.
+   
+   ## Dockerfile
+   
+   El Dockerfile se utiliza para crear una imagen de Docker que contiene la aplicación Java. A continuación se explica cada línea del Dockerfile:
+   
+   ```dockerfile
+   # Utiliza una imagen oficial de OpenJDK como imagen base
+   FROM openjdk:17-jdk-slim
+   
+   # Establece el directorio de trabajo en el contenedor
+   WORKDIR /app
+   
+   # Copia el archivo JAR en el contenedor
+   COPY target/superheros.jar app.jar
+   
+   # Expone el puerto 8080 al exterior del contenedor
+   EXPOSE 8080
+   
+   # Ejecuta el archivo JAR
+   ENTRYPOINT ["java", "-jar", "app.jar"]
+
+El archivo yml incluye las relaciones entre la base de datos creada (superheroes) usando mysql8 al igual que las relaciones con el contenedor que se encargara de ejecutar el script de python usado en el 4 punto de la presente prueba
