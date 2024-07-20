@@ -4,8 +4,8 @@ Prueba Técnica: Perfil DevOps
 This project demonstrates a DevOps technical test involving cloning, dockerizing, deploying, synchronizing, and extending an API with a Python script. Below are the detailed steps and instructions to reproduce the setup.
 
 Table of Contents
-Cloning the Repository
-Setting Up MySQL Database
+1.Cloning the Repository
+2.Setting Up MySQL Database
 Dockerizing the Application
 Deploying the Dockerized Application
 Synchronizing with AWS S3
