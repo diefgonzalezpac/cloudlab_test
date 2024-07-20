@@ -82,27 +82,24 @@ This project demonstrates a DevOps technical test involving cloning, dockerizing
             dockerfile: Dockerfile.python
           depends_on:
             - app
+   ```
 
-## Despliegue de la Aplicación Dockerizada
-4.  Despliegue app
-
-   
-   
+3.  Despliegue app
    Para desplegar la aplicación dockerizada, sigue estos pasos:
    
-   1. Construir la imagen Docker:
+   - Construir la imagen Docker:
        ```sh
        docker build -t nombre-de-tu-imagen .
        ```
    
-   2. Ejecutar el contenedor:
+   - Ejecutar el contenedor:
        ```sh
        docker run -p 8080:8080 nombre-de-tu-imagen
        ```
-5. Sincronización aws bucket
-   ## Configuración de la Sincronización
-   
-   La sincronización entre el bucket de AWS S3 y el directorio local se realiza utilizando el comando `aws s3 sync`. Este comando asegura que el contenido del directorio local se sincronice con el bucket de S3.
+       
+4. Sincronización aws bucket
+   La sincronización entre el bucket de AWS S3 y el directorio local se realiza utilizando el comando `aws s3 sync`. Este comando asegura que el contenido del directorio local se    
+   sincronice con el bucket de S3.
    
    ### Código de Sincronización
    
