@@ -50,3 +50,36 @@ This project demonstrates a DevOps technical test involving cloning, dockerizing
    ENTRYPOINT ["java", "-jar", "app.jar"]
 
 El archivo yml incluye las relaciones entre la base de datos creada (superheroes) usando mysql8 al igual que las relaciones con el contenedor que se encargara de ejecutar el script de python usado en el 4 punto de la presente prueba
+
+   ```yaml
+   version: '3.8'
+   
+   services:
+     db:
+       image: mysql:8
+       environment:
+         MYSQL_DATABASE: superheroes
+         MYSQL_USER: username
+         MYSQL_PASSWORD: password
+         MYSQL_ROOT_PASSWORD: password
+       ports:
+         - "3306:3306"
+   
+     app:
+       build: .
+       ports:
+         - "8080:8080"
+       environment:
+         SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/superheroes
+         SPRING_DATASOURCE_USERNAME: username
+         SPRING_DATASOURCE_PASSWORD: password
+       depends_on:
+         - db
+   
+     fetch_superheroes:
+       build:
+         context: .
+         dockerfile: Dockerfile.python
+       depends_on:
+         - app
+   
