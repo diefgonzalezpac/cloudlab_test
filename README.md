@@ -82,4 +82,31 @@ El archivo yml incluye las relaciones entre la base de datos creada (superheroes
          dockerfile: Dockerfile.python
        depends_on:
          - app
+
+## Despliegue de la Aplicación Dockerizada
+4.  Despliegue app
+
    
+   
+   Para desplegar la aplicación dockerizada, sigue estos pasos:
+   
+   1. Construir la imagen Docker:
+       ```sh
+       docker build -t nombre-de-tu-imagen .
+       ```
+   
+   2. Ejecutar el contenedor:
+       ```sh
+       docker run -p 8080:8080 nombre-de-tu-imagen
+       ```
+5. Sincronización aws bucket
+   ## Configuración de la Sincronización
+   
+   La sincronización entre el bucket de AWS S3 y el directorio local se realiza utilizando el comando `aws s3 sync`. Este comando asegura que el contenido del directorio local se sincronice con el bucket de S3.
+   
+   ### Código de Sincronización
+   
+   El siguiente comando se utiliza para sincronizar el directorio local con el bucket de S3:
+   
+   ```sh
+   aws s3 sync /home/difegopa/cloudlabs_learning_project/superheros s3://superheros-bucket --delete
