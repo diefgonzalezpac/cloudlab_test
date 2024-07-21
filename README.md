@@ -12,10 +12,8 @@ This project demonstrates a DevOps technical test involving cloning, dockerizing
 4. [Deploying the Dockerized Application](#deploying-the-dockerized-application)
 5. [Synchronizing with AWS S3](#synchronizing-with-aws-s3)
 6. [Python Script for API Data Processing](#python-script-for-api-data-processing)
-7. [Optional Deployment with Terraform](#optional-deployment-with-terraform)
 8. [Testing and Running](#testing-and-running)
 9. [Executing Docker Containers from Docker Hub](#executing-docker-containers-from-docker-hub)
-10. [Conclusion](#conclusion)
 
 ## Cloning the Repository
 
@@ -140,7 +138,7 @@ El proyecto se compone de los siguientes servicios:
 
 1. **Clonar el repositorio**:
     ```sh
-    git clone https://github.com/tu_usuario/proyecto-superheroes.git
+    git clone https://github.com/diefgonzalezpac/proyecto-superheroes.git
     cd proyecto-superheroes
     ```
 
@@ -176,47 +174,3 @@ El proyecto se compone de los siguientes servicios:
 
     Esto mostrará la información de los superhéroes en los logs del contenedor `fetch_superheroes`.
 
-### Detalles del archivo `docker-compose.yml`
-
-```yaml
-version: '3.8'
-
-services:
-  db:
-    image: mysql:8
-    environment:
-      MYSQL_DATABASE: superheroes
-      MYSQL_USER: username
-      MYSQL_PASSWORD: password
-      MYSQL_ROOT_PASSWORD: password
-    ports:
-      - "3306:3306"
-    networks:
-      - superheroes-network
-
-  app:
-    image: difegopa97/superhero-app
-    ports:
-      - "8080:8080"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/superheroes
-      SPRING_DATASOURCE_USERNAME: username
-      SPRING_DATASOURCE_PASSWORD: password
-    depends_on:
-      - db
-    networks:
-      - superheroes-network
-
-  fetch_superheroes:
-    build:
-      context: .
-      dockerfile: Dockerfile.python
-    depends_on:
-      - app
-    networks:
-      - superheroes-network
-
-networks:
-  superheroes-network:
-    driver: bridge
-```
