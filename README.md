@@ -108,3 +108,115 @@ This project demonstrates a DevOps technical test involving cloning, dockerizing
    
    ```sh
    aws s3 sync /home/difegopa/cloudlabs_learning_project/superheros s3://superheros-bucket --delete
+   ```
+
+# Proyecto Superhéroes
+
+Este proyecto tiene como objetivo desplegar un conjunto de servicios en contenedores Docker para gestionar y obtener información sobre superhéroes. Incluye un servicio de base de datos MySQL, una aplicación principal y un script Python para obtener y mostrar los superhéroes desde la API.
+
+## Estructura del Proyecto
+
+El proyecto se compone de los siguientes servicios:
+
+1. **db**: Servicio de base de datos MySQL.
+2. **app**: Aplicación principal que sirve la API de superhéroes.
+3. **fetch_superheroes**: Script Python que consume la API de superhéroes y muestra la información.
+
+## Requisitos Previos
+
+- Docker instalado en tu máquina.
+- Docker Compose instalado.
+
+## Archivos del Proyecto
+
+- **Dockerfile.python**: Dockerfile para construir la imagen del script Python.
+- **docker-compose.yml**: Archivo de configuración de Docker Compose.
+- **fetch_superheroes.py**: Script Python para obtener y mostrar la información de los superhéroes.
+- **requirements.txt**: Archivo de dependencias para el script Python.
+
+## Instrucciones
+
+### Paso 1: Clonar el Repositorio
+
+1. **Clonar el repositorio**:
+    ```sh
+    git clone https://github.com/tu_usuario/proyecto-superheroes.git
+    cd proyecto-superheroes
+    ```
+
+### Paso 2: Crear la Red de Docker
+
+2. **Crear la red de Docker**:
+    ```sh
+    docker network create superheroes-network
+    ```
+
+### Paso 3: Construir y Levantar los Servicios
+
+3. **Construir y levantar los servicios**:
+    ```sh
+    docker-compose up -d
+    ```
+
+    Esto construirá las imágenes y levantará los contenedores definidos en el archivo `docker-compose.yml`.
+
+### Paso 4: Ejecutar el Contenedor de `fetch_superheroes`
+
+4. **Ejecutar el contenedor `fetch_superheroes`**:
+    ```sh
+    docker-compose run fetch_superheroes
+    ```
+
+### Paso 5: Verificar los Logs
+
+5. **Verificar los logs**:
+    ```sh
+    docker logs nombre_del_contenedor_fetch_superheroes
+    ```
+
+    Esto mostrará la información de los superhéroes en los logs del contenedor `fetch_superheroes`.
+
+### Detalles del archivo `docker-compose.yml`
+
+```yaml
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_DATABASE: superheroes
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "3306:3306"
+    networks:
+      - superheroes-network
+
+  app:
+    image: difegopa97/superhero-app
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/superheroes
+      SPRING_DATASOURCE_USERNAME: username
+      SPRING_DATASOURCE_PASSWORD: password
+    depends_on:
+      - db
+    networks:
+      - superheroes-network
+
+  fetch_superheroes:
+    build:
+      context: .
+      dockerfile: Dockerfile.python
+    depends_on:
+      - app
+    networks:
+      - superheroes-network
+
+networks:
+  superheroes-network:
+    driver: bridge
+```
