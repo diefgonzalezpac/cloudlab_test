@@ -2,11 +2,11 @@
 
 ## Prueba Técnica: Perfil DevOps
 
-This project demonstrates a DevOps technical test involving cloning, dockerizing, deploying, synchronizing, and extending an API with a Python script. Below are the detailed steps and instructions to reproduce the setup.
+El presente projecto involucra clonar, dockerizar, desplegar, sincronizar y extender una API con un script en Python. A continuación, se detallan los pasos e instrucciones para reproducir la configuración.
 
 ## Cloning the Repository
 
-1. Clone the repository:
+1. Clonar el repositorio:
 
    ```bash
    git clone https://github.com/friveradev/superheros
@@ -152,7 +152,7 @@ El proyecto se compone de los siguientes servicios:
 
 ### Opción 2: Descargar desde DockerHub
 
-Si prefieres descargar las imágenes desde DockerHub, sigue estos pasos:
+Si se prefiere descargar las imágenes desde DockerHub, seguir estos pasos:
 
 #### Paso 1: Crear la Red de Docker
 
@@ -168,7 +168,7 @@ Si prefieres descargar las imágenes desde DockerHub, sigue estos pasos:
     docker-compose -f docker-compose.yml up -d
     ```
 
-    Asegúrate de que tu `docker-compose.yml` esté configurado para usar las imágenes de DockerHub:
+    Asegúrarse de que el archivo `docker-compose.yml` esté configurado para usar las imágenes de DockerHub:
 
 
 #### Paso 3: Ejecutar el Contenedor de `fetch_superheroes`
@@ -189,9 +189,9 @@ Si prefieres descargar las imágenes desde DockerHub, sigue estos pasos:
 
 ### Notas Adicionales
 
-- Asegúrate de que los puertos `3306` y `8080` no estén siendo utilizados por otros servicios en tu máquina.
-- Puedes modificar las variables de entorno en el archivo `docker-compose.yml` según tus necesidades.
-- Si deseas detener y eliminar los contenedores, usa el comando:
+- Asegurarse de que los puertos `3306` y `8080` no estén siendo utilizados por otros servicios en tu máquina.
+- Se puede modificar las variables de entorno en el archivo `docker-compose.yml` según tus necesidades.
+- Si se desea detener y eliminar los contenedores, usa el comando:
     ```sh
     docker-compose down
     ```
