@@ -110,7 +110,7 @@ This project demonstrates a DevOps technical test involving cloning, dockerizing
    aws s3 sync /home/difegopa/cloudlabs_learning_project/superheros s3://superheros-bucket --delete
    ```
 
-# Proyecto Superhéroes
+# Ejecución Proyecto Superhéroes
 
 Este proyecto tiene como objetivo desplegar un conjunto de servicios en contenedores Docker para gestionar y obtener información sobre superhéroes. Incluye un servicio de base de datos MySQL, una aplicación principal y un script Python para obtener y mostrar los superhéroes desde la API.
 
