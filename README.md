@@ -82,21 +82,8 @@ This project demonstrates a DevOps technical test involving cloning, dockerizing
           depends_on:
             - app
    ```
-
-3.  Despliegue app
-   Para desplegar la aplicación dockerizada, sigue estos pasos:
-   
-   - Construir la imagen Docker:
-       ```sh
-       docker build -t nombre-de-tu-imagen .
-       ```
-   
-   - Ejecutar el contenedor:
-       ```sh
-       docker run -p 8080:8080 nombre-de-tu-imagen
-       ```
        
-4. Sincronización aws bucket
+3. Sincronización aws bucket
    La sincronización entre el bucket de AWS S3 y el directorio local se realiza utilizando el comando `aws s3 sync`. Este comando asegura que el contenido del directorio local se    
    sincronice con el bucket de S3.
    
@@ -173,4 +160,50 @@ El proyecto se compone de los siguientes servicios:
     ```
 
     Esto mostrará la información de los superhéroes en los logs del contenedor `fetch_superheroes`.
+
+### Opción 2: Descargar desde DockerHub
+
+Si prefieres descargar las imágenes desde DockerHub, sigue estos pasos:
+
+#### Paso 1: Crear la Red de Docker
+
+1. **Crear la red de Docker**:
+    ```sh
+    docker network create superheroes-network
+    ```
+
+#### Paso 2: Descargar y Levantar los Servicios
+
+2. **Descargar y levantar los servicios**:
+    ```sh
+    docker-compose -f docker-compose.yml up -d
+    ```
+
+    Asegúrate de que tu `docker-compose.yml` esté configurado para usar las imágenes de DockerHub:
+
+
+#### Paso 3: Ejecutar el Contenedor de `fetch_superheroes`
+
+3. **Ejecutar el contenedor `fetch_superheroes`**:
+    ```sh
+    docker-compose run fetch_superheroes
+    ```
+
+#### Paso 4: Verificar los Logs
+
+4. **Verificar los logs**:
+    ```sh
+    docker logs nombre_del_contenedor_fetch_superheroes
+    ```
+
+    Esto mostrará la información de los superhéroes en los logs del contenedor `fetch_superheroes`.
+
+### Notas Adicionales
+
+- Asegúrate de que los puertos `3306` y `8080` no estén siendo utilizados por otros servicios en tu máquina.
+- Puedes modificar las variables de entorno en el archivo `docker-compose.yml` según tus necesidades.
+- Si deseas detener y eliminar los contenedores, usa el comando:
+    ```sh
+    docker-compose down
+    ```
 
